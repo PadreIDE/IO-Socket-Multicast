@@ -32,6 +32,8 @@ jobs:
             cpan --installdeps .
 
       - name: Regular tests
+        env:
+          TEST_UNSAFE: 1
         run: |
             perl Makefile.PL
             make
