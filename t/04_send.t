@@ -1,7 +1,7 @@
 #!/usr/bin/perl
 use strict;
 BEGIN {
-	$| 
+	$|
  = 1;
 	$^W = 1;
 }
@@ -27,9 +27,9 @@ $s->mcast_loopback(1);
 my $payload =  "IO::Socket::Multicast test packet - $$ $0";
 
 ok( $s->mcast_add( $MCAST_ADDR ) , "Join $MCAST_ADDR" );
-ok( 
-    $s->mcast_send( $payload ,"$MCAST_ADDR:$MCAST_PORT") , 
-    "Send to $MCAST_ADDR:$MCAST_PORT" 
+ok(
+    $s->mcast_send( $payload ,"$MCAST_ADDR:$MCAST_PORT") ,
+    "Send to $MCAST_ADDR:$MCAST_PORT"
 );
 
 my $data;
