@@ -99,7 +99,7 @@ sub mcast_dest {
   my $sock = shift;
   my $prev = ${*$sock}{'io_socket_mcast_dest'};
   if (my $dest = shift) {
-    $dest = sockaddr_in($2,inet_aton($1)) if $dest =~ /^($IP):(\d+)$/;
+    $dest = sockaddr_in(int($2),inet_aton($1)) if $dest =~ /^($IP):(\d+)$/;
     croak "invalid destination address" unless length($dest) == 16;
     ${*$sock}{'io_socket_mcast_dest'} = $dest;
   }
